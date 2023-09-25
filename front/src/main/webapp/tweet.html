@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create SingleTweet</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Create SingleTweet</h1>
+        <form id="singleTweetForm" method="post" action="/api/kafka/send">
+            <!-- Tweet ID -->
+            <div class="form-group">
+                <label for="tweetId">Tweet ID:</label>
+                <input type="text" class="form-control" id="tweetId" name="tweet_id" required>
+            </div>
+
+            <!-- Username -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+
+            <!-- Tweet Text -->
+            <div class="form-group">
+                <label for="tweetText">Tweet Text:</label>
+                <textarea class="form-control" id="tweetText" name="tweet" rows="4" required></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Create Tweet</button>
+        </form>
+    </div>
+
+    <!-- Link to Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,8 +1,17 @@
 from pyspark.sql import SparkSession
+from pyspark.sql.types import StructType, StructField, StringType
 from flask import Flask, request, jsonify
 import threading
 app = Flask(__name__)
 DATAFRAME = None
+
+custom_schema = StructType([
+    StructField("tweet_id", StringType(), True),
+    StructField("username", StringType(), True),
+    StructField("tweet_data", StringType(), True),
+    StructField("sentiment", StringType(), True)
+    
+])
 
 
 def run_spark_streaming():
@@ -11,15 +20,16 @@ def run_spark_streaming():
             .config("spark.sql.streaming.schemaInference", "true")\
                 .getOrCreate()
 
-    input_path = "hdfs:///user/stream/tweet"
+    input_path = "hdfs:///jenly/projects/sentimentAnalysis/tweets"
     streaming = spark.readStream \
         .format("csv") \
-        .option("header", "true") \
+        .schema(custom_schema) \
+        .option("header", "false") \
         .option("maxFilesPerTrigger",1) \
         .load(input_path)
 
         
-    activityCounts = streaming.groupBy("author").count()
+    activityCounts = streaming.groupBy("sentiment").count()
 
 
     spark.conf.set("spark.sql.shuffle.partitions", 5) 
@@ -27,8 +37,9 @@ def run_spark_streaming():
 
     def getBatchProcess(batch_df):
         global DATAFRAME
-        counts = batch_df.groupBy("author").count()
+        counts = batch_df.groupBy("sentiment").count()
         count_df_pandas = counts.toPandas()
+        
         # dataFrame =  count_df_pandas
         print(count_df_pandas)
         DATAFRAME = count_df_pandas
