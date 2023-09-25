@@ -1,9 +1,12 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, StringType
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import threading
 app = Flask(__name__)
 DATAFRAME = None
+CORS(app)
+CORS(app, origins=['*'])
 
 custom_schema = StructType([
     StructField("tweet_id", StringType(), True),
@@ -12,7 +15,6 @@ custom_schema = StructType([
     StructField("sentiment", StringType(), True)
     
 ])
-
 
 def run_spark_streaming():
     spark = SparkSession.builder\
@@ -37,8 +39,8 @@ def run_spark_streaming():
 
     def getBatchProcess(batch_df):
         global DATAFRAME
-        counts = batch_df.groupBy("sentiment").count()
-        count_df_pandas = counts.toPandas()
+        # counts = batch_df.groupBy("sentiment").count()
+        count_df_pandas = batch_df.toPandas()
         
         # dataFrame =  count_df_pandas
         print(count_df_pandas)
