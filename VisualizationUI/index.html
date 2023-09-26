@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    
+  </nav>
+  <div>
+    <div class="pie animate" style="--p:80;--c:rgb(0, 255, 0); " id="positive"> 80%</div>
+    <div class="pie animate" style="--p:90;--c:rgb(255, 0, 0)" id="negative"> 90%</div>
+    <div class="pie animate" style="--p:20;--c:blue" id="neutral"> 20%</div>
+  
+  </div>
+
+  
+  <script src="./app.js"></script>
+</body>
+</html>
+
+
+<style>
+  @property --p{
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 1;
+  }
+
+  .pie {
+    --p:20;
+    --b:45px;
+    --c:darkred;
+    --w:350px;
+
+    width: var(--w);
+    aspect-ratio: 1;
+    position: relative;
+    display: inline-grid;
+    margin: 5px;
+    place-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+  .pie:before,
+  .pie:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+  }
+  .pie:before {
+    inset: 0;
+    background:
+      radial-gradient(farthest-side,var(--c) 98%,#0000) top/var(--b) var(--b) no-repeat,
+      conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+            mask: radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+  }
+  .pie:after {
+    inset: calc(50% - var(--b)/2);
+    background: var(--c);
+    transform: rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+  }
+  .animate {
+    animation: p 1s .5s both;
+  }
+ 
+  @keyframes p{
+    from{--p:0}
+  }
+
+</style>
+
+
+
+
+
+
+
+

@@ -27,6 +27,7 @@ def run_spark_streaming():
         .format("csv") \
         .schema(custom_schema) \
         .option("header", "false") \
+        .option("inferSchema","false") \
         .option("maxFilesPerTrigger",1) \
         .load(input_path)
 
