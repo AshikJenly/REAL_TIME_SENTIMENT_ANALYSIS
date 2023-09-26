@@ -9,11 +9,34 @@
   <nav>
     
   </nav>
-  <div>
-    <div class="pie animate" style="--p:80;--c:rgb(0, 255, 0); " id="positive"> 80%</div>
-    <div class="pie animate" style="--p:90;--c:rgb(255, 0, 0)" id="negative"> 90%</div>
-    <div class="pie animate" style="--p:20;--c:blue" id="neutral"> 20%</div>
-  
+  <div class="container">
+    <h1 class="container--heading">Sentiment Analysis Dashboard</h1>
+    <div class="container--body">
+      <div class="pie-name">
+
+        <div class="pie animate" style="--p:100;--c:rgb(0, 255, 0); " id="positive"> Loading..
+        </div>
+        <!-- <hr> -->
+        <div class="name name-positive">
+          positive
+        </div>
+      </div>
+
+      <div class="pie-name">
+        <div class="pie animate" style="--p:100;--c:rgb(255, 0, 0)" id="negative"> Loading..</div>
+        <div class="name name-negative">
+          negative
+        </div>
+      </div>
+
+      <div class="pie-name">
+        <div class="pie animate" style="--p:100;--c:blue" id="neutral"> Loading..</div>
+        <div class="name name-neutral">
+         <!-- <span>E</span> -->
+          neutral
+        </div>
+      </div>
+    </div>
   </div>
 
   
@@ -21,7 +44,7 @@
 </body>
 </html>
 
-
+<!-- 
 <style>
   @property --p{
     syntax: '<number>';
@@ -31,9 +54,9 @@
 
   .pie {
     --p:20;
-    --b:45px;
+    --b:2.8rem;
     --c:darkred;
-    --w:350px;
+    --w:20rem;
 
     width: var(--w);
     aspect-ratio: 1;
@@ -71,10 +94,130 @@
   @keyframes p{
     from{--p:0}
   }
+  .container {
+    width: 90%;
+    margin-inline:auto ;
+  }
+.container--body{
+  display: flex;
+  /* flex-direction: column; */
+  
+}
 
+</style> -->
+
+
+<style>
+  html{
+    font-family: sans-serif;
+  }
+  body{
+    background-color: #f2f2e9;
+  }
+  @property --p {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 1;
+  }
+
+  .pie {
+    --p: 20;
+    --b: 2.8rem;
+    --c: darkred;
+    --w: 20rem;
+
+    width: var(--w);
+    aspect-ratio: 1;
+    position: relative;
+    display: inline-grid;
+    margin: 5px;
+    place-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: sans-serif;
+  
+  }
+
+  .pie-name{
+    border: 1px solid #333;
+    padding: 0.8rem;
+  }
+  .pie:before,
+  .pie:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .pie:before {
+    inset: 0;
+    background: radial-gradient(farthest-side, var(--c) 98%, #0000) top / var(--b) var(--b) no-repeat,
+      conic-gradient(var(--c) calc(var(--p) * 1%), #0000 0);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+    mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+  }
+
+  .pie:after {
+    inset: calc(50% - var(--b) / 2);
+    background: var(--c);
+    transform: rotate(calc(var(--p) * 3.6deg)) translateY(calc(50% - var(--w) / 2));
+  }
+
+  .animate {
+    animation: p 2.5s .5s both;
+  }
+
+  @keyframes p {
+    from {
+      --p: 0;
+    }
+  }
+
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 90%; /* Adjust this value based on your desired maximum container width */
+    text-align: center;
+  }
+
+  .container--heading{
+    margin-bottom: 6.8rem;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+  }
+  .container--body {
+    display: flex;
+    gap:3rem;
+    flex-wrap: wrap; /* Allow content to wrap to the next line on smaller screens */
+    justify-content: center; /* Center the pie elements horizontally */
+    align-items: center;
+    
+  }
+
+  .name{
+   text-transform: uppercase;
+   margin-top: 2rem; 
+   font-size: 2rem;
+   font-weight: 700;
+  }
+  .name-positive{
+    color:rgb(0, 255, 0) ;
+  }
+  .name-negative{
+    color:rgb(255,0, 0) ;
+  }
+  .name-neutral{
+    color:rgb(0, 0, 255) ;
+  }
+  @media screen and (max-width: 768px) {
+    /* Adjust styles for screens with a maximum width of 768px or smaller */
+    .container {
+      width: 95%; /* Make the container slightly narrower on smaller screens */
+    }
+  }
 </style>
-
-
 
 
 

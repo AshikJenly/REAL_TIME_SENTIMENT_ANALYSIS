@@ -18,7 +18,7 @@ function updatePieChart(counts)
     const sum = counts.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
     function getPercent(count,sum)
     {
-        percent = count/sum * 100
+        percent = Math.round(count/sum * 100)
         return percent
     }
     const positive = document.getElementById('positive');
@@ -46,6 +46,8 @@ fetchData()
 
 function reloadPage() {
     location.reload();
+    
 }
 setInterval(fetchData, 2000);
 setInterval(reloadPage, 7000);
+ 
