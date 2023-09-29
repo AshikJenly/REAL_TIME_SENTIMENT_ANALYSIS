@@ -5,6 +5,7 @@ from flask_cors import CORS
 import threading
 app = Flask(__name__)
 DATAFRAME = None
+TWEETS_DATAFRAME = None
 CORS(app)
 CORS(app, origins=['*'])
 
@@ -31,7 +32,7 @@ def run_spark_streaming():
         .option("maxFilesPerTrigger",1) \
         .load(input_path)
 
-        
+    
     activityCounts = streaming.groupBy("sentiment").count()
 
 
@@ -39,11 +40,10 @@ def run_spark_streaming():
 
 
     def getBatchProcess(batch_df):
+       
         global DATAFRAME
-        # counts = batch_df.groupBy("sentiment").count()
         count_df_pandas = batch_df.toPandas()
         
-        # dataFrame =  count_df_pandas
         print(count_df_pandas)
         DATAFRAME = count_df_pandas
 
@@ -56,6 +56,22 @@ def run_spark_streaming():
     query.awaitTermination()
 
 
+spark_batch = SparkSession.builder\
+        .appName("Get Tweets")\
+                .getOrCreate()
+
+def run_spark_batch():
+    """Returns all the tweets"""
+    input_path = "hdfs:///jenly/projects/sentimentAnalysis/tweets"
+    data = spark_batch.read\
+        .csv(input_path,schema=custom_schema)
+
+    return data.toPandas()
+    
+
+
+
+
 
 @app.route('/api/stream', methods=['GET'])
 def start_streaming():
@@ -63,6 +79,17 @@ def start_streaming():
     if DATAFRAME is not None:
         return DATAFRAME.to_json()
     else:
+        return jsonify({"message ":"none"})
+
+
+
+@app.route('/api/getalltweets',methods=["GET"])
+def get_tweets():
+    global TWEETS_DATAFRAME
+    if TWEETS_DATAFRAME is not None:
+        return TWEETS_DATAFRAME.to_json()
+    else:
+        TWEETS_DATAFRAME = run_spark_batch()
         return jsonify({"message ":"none"})
 
 def threaded_job():
