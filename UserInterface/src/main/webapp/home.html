@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <!-- Link to Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Custom CSS -->
+    <title>Tweet Display</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         .tweet-card {
             margin-bottom: 20px;
@@ -14,50 +13,89 @@
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Home Page</h1>
-        
-        <!-- Tweet Button -->
-        <a href="/tweet" class="btn btn-primary">Tweet</a>
-        
-        <hr>
-        
-        <!-- Display Available Tweets -->
-        <h2>Available Tweets</h2>
-        <div id="tweetList">
-            <!-- Tweets will be displayed here dynamically -->
-        </div>
-    </div>
 
     
-    <script>
-        // Example data for available tweets (replace with actual data)
-        const availableTweets = [
-            "Tweet 1: This is the first tweet.",
-            "Tweet 2: Another tweet here.",
-            "Tweet 3: Yet another tweet."
-        ];
 
-        // Function to dynamically load available tweets
-        function loadTweets() {
-            const tweetList = document.getElementById("tweetList");
-            tweetList.innerHTML = ""; // Clear the existing list
+    <div class="home-cont">      
+       <!-- For menu button -->
+       <div class="menu-button" id="menu-b">
+        <a class="" href="#">
+            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc menu-svg">
+                <image xlink:href="https://www.svgrepo.com/show/532195/menu.svg" width="40" height="44"/>
+              </svg>
+        </a>
+            
+       </div>
+        <div class="container cont-1" id="cont-1-id">
 
-            availableTweets.forEach((tweet, index) => {
-                const tweetCard = document.createElement("div");
-                tweetCard.className = "card tweet-card";
-                tweetCard.innerHTML = `
-                    <div class="card-body">
-                        <h5 class="card-title">Tweet ${index + 1}</h5>
-                        <p class="card-text">${tweet}</p>
-                    </div>
-                `;
-                tweetList.appendChild(tweetCard);
-            });
-        }
+            <ul class="list cont-1-list">
+              
+                <!-- ---------LOGO ---------------- -->
+                <li>
+                    <div class="list-cont list-cont-home">
+                    <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                        <image xlink:href="https://www.svgrepo.com/show/513008/twitter-154.svg" width="40" height="44"/>
+                    </svg> </div> </li>
+                   
+                <li>
+                    <div class="list-cont list-cont-home">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                        <image xlink:href="https://www.svgrepo.com/show/524060/home.svg" width="24" height="24"/>
+                    </svg>
+                    <a href="" class="cont-1-fc">Home</a></div></li>
+                <li>
+                    
+                    <div class="list-cont">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                        <image xlink:href="https://www.svgrepo.com/show/450851/explore.svg" width="24" height="24"/>
+                    </svg>
+                    <a href="" class="cont-1-fc">Explore</a></div></li>
+                <li>
+                    <div class="list-cont">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                        <image xlink:href="https://www.svgrepo.com/show/451206/premium-content-user-credit.svg" width="24" height="24"/>
+                    </svg>
+                    <a href="" class="cont-1-fc">Premium</a></div></li>
+                <li>
+                    <div class="list-cont">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                        <image xlink:href="https://www.svgrepo.com/show/533270/message-square-lines-alt.svg" width="24" height="24"/>
+                    </svg>
+                    <a href="" class="cont-1-fc">Messages</a></div></li>
+                <li>
+                    <div class="list-cont list-cont-home">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                        <image xlink:href="https://www.svgrepo.com/show/532191/list-check.svg" width="24" height="24"/>
+                    </svg>
+                    <a href="" class="cont-1-fc">Lists</a></div></li>
+                <li>
+                    <div class="list-cont list-cont-home">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                        <image xlink:href="https://www.svgrepo.com/show/497332/more-circle.svg" width="24" height="24"/>
+                    </svg>
+                    <a href="" class="cont-1-fc">More</a></div></li>
+                <li><div class="list-cont btn btn-primary"><a href="">Post</a></div></li>
 
-        // Load available tweets when the page loads
-        window.addEventListener("DOMContentLoaded", loadTweets);
-    </script>
+            </ul>
+        </div>
+        
+        <div class="container cont-2">
+            <nav class="cont-2-nav">
+                <ul class="list cont-2-list">
+                    <li class="list-cont"><a href="" class="cont-2-fc">Home</a></li>
+                </ul>
+            </nav>
+            <div id="tweetCardContainer">
+                <!-- Tweet data will be inserted here -->
+            </div>
+
+        </div>
+    
+    </div>
+
+            
+    
+    <!-- Include Bootstrap and JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

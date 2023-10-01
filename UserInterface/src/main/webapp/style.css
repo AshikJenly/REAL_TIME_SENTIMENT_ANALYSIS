@@ -1,0 +1,78 @@
+
+.home-cont{
+    background-color: antiquewhite;
+    display: flex;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+
+/* container - 1 */
+@media screen and (max-width: 1200px) {
+    .cont-1 {
+        display: none;
+    }
+
+}
+/* https://www.svgrepo.com/show/532195/menu.svg" */
+.cont-1{
+    width: 25%;
+    position: fixed;
+
+}
+.list-cont a{
+ text-decoration: none;
+ 
+}
+.list{
+    list-style:none;
+}
+.list-cont
+{
+    border-right: 100px;
+    margin-left: 3px ;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+}
+.cont-1-fc{
+    color: black;
+    font-size: 17px;
+    fill: green;
+}
+
+/* container - 2 */
+.cont-2{
+    width: 70%;
+}
+.cont-2-nav{
+    position:sticky;
+    top: 0;
+    z-index: 70;
+    background-color: antiquewhite;
+
+}
+.cont-2-fc{
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+/* Menu Button */
+@media screen and (min-width: 1200px) {
+.menu-button
+{
+    display: none;
+}
+}
+@media screen and (max-width: 1200px) {
+
+.menu-button
+{
+    margin-top: 20px;
+    margin-left:70%;
+    margin-right: 10%;
+    z-index: 100;
+    position: fixed;
+}
+
+}
