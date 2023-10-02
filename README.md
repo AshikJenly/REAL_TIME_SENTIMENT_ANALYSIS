@@ -1,1 +1,1 @@
-# Real-time-SentimentAnalysis-Dashboard-with-SparkStreaming-and-Hive
+# Real-time-SentimentAnalysis-Dashboard-with-SparkStreaming-and-HiveREALTIME SENTIMENT ANALYSIS
