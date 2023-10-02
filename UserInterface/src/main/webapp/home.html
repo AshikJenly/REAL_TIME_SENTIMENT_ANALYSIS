@@ -6,11 +6,7 @@
     <title>Tweet Display</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .tweet-card {
-            margin-bottom: 20px;
-        }
-    </style>
+    
 </head>
 <body>
 
@@ -20,7 +16,7 @@
        <!-- For menu button -->
        <div class="menu-button" id="menu-b">
         <a class="" href="#">
-            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc menu-svg">
+            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc " id="menu-svg">
                 <image xlink:href="https://www.svgrepo.com/show/532195/menu.svg" width="40" height="44"/>
               </svg>
         </a>
@@ -34,7 +30,7 @@
                 <li>
                     <div class="list-cont list-cont-home">
                     <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
-                        <image xlink:href="https://www.svgrepo.com/show/513008/twitter-154.svg" width="40" height="44"/>
+                        <image xlink:href="https://www.svgrepo.com/show/452121/twitter-1.svg" width="40" height="44"/>
                     </svg> </div> </li>
                    
                 <li>
@@ -74,7 +70,9 @@
                         <image xlink:href="https://www.svgrepo.com/show/497332/more-circle.svg" width="24" height="24"/>
                     </svg>
                     <a href="" class="cont-1-fc">More</a></div></li>
-                <li><div class="list-cont btn btn-primary"><a href="">Post</a></div></li>
+                <li>
+                    <a href="/tweet.html" class="post-d btn">Post</a>
+                    </li>
 
             </ul>
         </div>
@@ -82,9 +80,14 @@
         <div class="container cont-2">
             <nav class="cont-2-nav">
                 <ul class="list cont-2-list">
+                    <li class="logo-home" id="logo-home-id">
+                        <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                        <image xlink:href="https://www.svgrepo.com/show/452121/twitter-1.svg" width="50" height="50"/>
+                    </svg></li>
                     <li class="list-cont"><a href="" class="cont-2-fc">Home</a></li>
                 </ul>
             </nav>
+            
             <div id="tweetCardContainer">
                 <!-- Tweet data will be inserted here -->
             </div>

@@ -9,15 +9,56 @@ function populateTable() {
             for (let i = 0; i < Object.keys(data.tweet_id).length; i++) {
 
                 const tweetCard = document.createElement('div');
-                tweetCard.className = 'card tweet-card';
+                tweetCard.className = '';
                 tweetCard.innerHTML = `
-                    <div class="card-body">
-                        <h5 class="card-title">${data.username[i]}</h5>
-                        <p class="card-text">${data.tweet_data[i]}</p>
-                        
+                    <div class="">
+                <ul class="tweet-user-list">
+                    <div>
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                        <image xlink:href="https://www.svgrepo.com/show/532363/user-alt-1.svg" width="24" height="24"/>
+                    </svg>
                     </div>
+                        <h5 class="user-name">${data.username[i]}</h5>
+                        <h5 class="user-id">${data.tweet_id[i]}</h5>
+                        </div>
+                        </ul>
+                        <p class="tweet-data">${data.tweet_data[i]}</p> 
+                        <image class="tweet-image" src="https://imgs.search.brave.com/emP17o4aBNSQyp-I34fjtKsE8-7wX77REodmB_o34Aw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy83/Lzc5L1RoZV9TcGFj/ZVhfRmFjdG9yeS5q/cGc" rel="sampleimage" >  
+                <ul class="impression-list">
+                <li>
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                    <image xlink:href="https://www.svgrepo.com/show/533232/message-circle.svg" width="24" height="24"/>
+                    </svg>
+                    <p>23k</p>
+                </li>
+                <li>
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                    <image xlink:href="https://www.svgrepo.com/show/349614/retweet.svg" width="24" height="24"/>
+                    </svg>
+                    <p>12.4k</p>
+                </li>
+                <li>
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                    <image xlink:href="https://www.svgrepo.com/show/524063/heart.svg" width="24" height="24"/>
+                    </svg>
+                    <p>19.1k</p>
+                </li>
+                <li>
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                    <image xlink:href="https://www.svgrepo.com/show/471048/bar-chart-04.svg" width="24" height="24"/>
+                    </svg>
+                    <p>23k</p>
+                </li>
+                <li>
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="cont-1-fc">
+                    <image xlink:href="https://www.svgrepo.com/show/511124/share-ios-export.svg" width="24" height="24"/>
+                    </svg>
+                </li>
+                </ul>
+                <hr>
+                
                 `;
-
+                
                 tableBody.appendChild(tweetCard);
             }
         })
@@ -29,7 +70,7 @@ function populateTable() {
 // ----------------  Menu Bar module --------------------
 function menuBarShow()
 {
-    if (!isShowing)
+    if (isShowing == false)
     {
         const menu_contents = document.getElementById('cont-1-id');
         csstext = `
@@ -38,15 +79,29 @@ function menuBarShow()
             z-index:100;
             height:100vh;
         `
-        
+        const svgLogo = document.getElementById('logo-home-id');
+        const svgElement = document.getElementById('menu-svg');
+        svgLogo.style.cssText = `display:none`
+        svgElement.querySelector('image').setAttribute('xlink:href', 'https://www.svgrepo.com/show/521564/close.svg');
+       
         menu_contents.style.cssText = csstext
         isShowing = true
     }
     else{
         isShowing = false
-
+        const menu_contents = document.getElementById('cont-1-id');
+        csstext = `
+            display:none;
+            background-color:  #fbfaf8;
+            z-index:100;
+            height:100vh;
+        `
+        menu_contents.style.cssText = csstext
+        const svgLogo = document.getElementById('logo-home-id');
         const svgElement = document.getElementById('menu-svg');
-        svgElement.querySelector('image').setAttribute('xlink:href', 'https://www.svgrepo.com/show/521564/close.svg');
+        
+        svgLogo.style.cssText = `display:block`
+        svgElement.querySelector('image').setAttribute('xlink:href', 'https://www.svgrepo.com/show/532195/menu.svg');
     }
 
 }

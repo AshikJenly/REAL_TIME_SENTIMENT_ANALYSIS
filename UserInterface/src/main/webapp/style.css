@@ -1,6 +1,5 @@
 
 .home-cont{
-    background-color: antiquewhite;
     display: flex;
     margin-left: 15%;
     margin-right: 15%;
@@ -20,6 +19,7 @@
     position: fixed;
 
 }
+
 .list-cont a{
  text-decoration: none;
  
@@ -48,7 +48,7 @@
     position:sticky;
     top: 0;
     z-index: 70;
-    background-color: antiquewhite;
+    background-color: rgb(255, 255, 255);
 
 }
 .cont-2-fc{
@@ -75,4 +75,71 @@
     position: fixed;
 }
 
+}
+.logo-home{
+    display: none;
+    margin-top: 20px;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+/* Post button */
+.post-d{
+    border-radius: 20px;
+    width: 5rem;
+    background-color: rgb(5, 160, 227);
+    color: white;
+}
+
+.btn:hover,
+.btn :active,
+.btn ::after
+{
+background-color: rgb(5, 143, 201);
+color: white;
+}
+
+
+/* Impression list */
+.impression-list
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;  
+    margin-left: 25px;  
+    margin-bottom: 0px;
+}
+.impression-list li
+{
+    display: flex;
+}
+
+.impression-list li p
+{
+    font-size: 0.9rem;
+    margin-left: 1px;    
+}
+.tweet-user-list{
+    display: flex;
+    
+}
+.tweet-data{
+    margin-left: 50px;
+}
+.user-name
+{
+    margin-right: 2%;
+    margin-left: 2%;
+    font-size: 1.15rem;
+}
+.user-id{
+    font-size: 1rem;
+    font-weight: lighter;
+}
+.tweet-image{
+    height: 70%;
+    width: 90%;
+    margin-left: 50px;
+    margin-bottom: 10px;
 }
