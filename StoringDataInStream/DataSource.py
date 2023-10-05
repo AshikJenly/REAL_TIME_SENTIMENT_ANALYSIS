@@ -11,13 +11,13 @@ spark = SparkSession.builder\
 
 
 kafka_bootstrap_servers = "localhost:9092" 
-kafka_topics = "orders"
+kafka_topics = "tweets"
 data_storage_path="/jenly/projects/sentimentAnalysis/tweets"
 kafka_source = spark.readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", kafka_bootstrap_servers) \
     .option("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer") \
-    .option("subscribe", "orders") \
+    .option("subscribe", "tweets") \
     .load()
 
 
@@ -49,7 +49,6 @@ def write_to_hdfs(df, epoch_id):
         .mode("append")\
             .csv(data_storage_path)
 
-# Apply the write_to_hive function to each micro-batch
 kafka_df_with_columns.writeStream \
     .foreachBatch(write_to_hdfs) \
     .start() \

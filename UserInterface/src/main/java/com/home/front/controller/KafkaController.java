@@ -16,7 +16,7 @@ public class KafkaController {
 
     public KafkaController(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
-        this.kafkaTopic = "orders";  // Replace with your Kafka topic name
+        this.kafkaTopic = "tweets";  // Replace with your Kafka topic name
     }
 
     @PostMapping("/kafka/send")

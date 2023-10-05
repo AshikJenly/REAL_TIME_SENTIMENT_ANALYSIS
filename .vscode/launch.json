@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FrontApplication<front>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.home.front.FrontApplication",
+            "projectName": "front",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
