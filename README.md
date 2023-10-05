@@ -26,7 +26,7 @@
 
 # How to Execute the Project
 ## Step 1: Starting All the Required Processes (Background/Foreground)
-```markdown
+
 
 
 1. Start Hadoop:
