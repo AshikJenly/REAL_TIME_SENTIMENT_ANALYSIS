@@ -22,10 +22,7 @@
 
 ## Project Architecture
 
-![ProjectArchitecture](https://github.com/AshikJenly/REAL_TIME_SENTIMENT_ANALYSIS/assets/116492348/3c44c2ff-74d9-460a-86ff-11e8cd3b8413)
-
-
-
+![ProjectArchitecture](https://github.com/AshikJenly/REAL_TIME_SENTIMENT_ANALYSIS/assets/116492348/2e4587e3-5c01-4d3a-9a43-6cfd02dad975)
 
 
 # How to Execute the Project
@@ -112,7 +109,8 @@
 
 # Output Sample:
 
-![Screenshot from 2023-10-05 21-09-17](https://github.com/AshikJenly/REAL_TIME_SENTIMENT_ANALYSIS/assets/116492348/00ce281a-10b0-436e-84fe-c3189c8dd303)
+![Screenshot from 2023-10-05 21-09-17](https://github.com/AshikJenly/REAL_TIME_SENTIMENT_ANALYSIS/assets/116492348/5c9cc4ee-eb45-4661-abec-f90dad3a9717)
 
-![Screenshot from 2023-10-05 21-38-32](https://github.com/AshikJenly/REAL_TIME_SENTIMENT_ANALYSIS/assets/116492348/09262209-5d66-419b-aa8c-c816add83bf2)
+
+![Screenshot from 2023-10-05 21-38-32](https://github.com/AshikJenly/REAL_TIME_SENTIMENT_ANALYSIS/assets/116492348/9bb3937d-28cb-4622-bd93-26b1d8c6adc4)
 
