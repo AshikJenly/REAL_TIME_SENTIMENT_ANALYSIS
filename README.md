@@ -1,7 +1,9 @@
 # Real-time Sentiment Analysis
 
 ## Tools Used
-
+### Operating System
+- Ubuntu
+  
 ### Programming Languages
 - Python
 - Java
@@ -15,6 +17,8 @@
 ### Software Frameworks
 - Flask
 - Spring Boot
+
+## Spark Execution Mode : Local
 
 ## Project Architecture
 
