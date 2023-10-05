@@ -110,5 +110,5 @@
 
 ![Screenshot from 2023-10-05 21-09-17](https://github.com/AshikJenly/REAL_TIME_SENTIMENT_ANALYSIS/assets/116492348/00ce281a-10b0-436e-84fe-c3189c8dd303)
 
-![Screenshot from 2023-10-05 21-09-17](https://github.com/AshikJenly/REAL_TIME_SENTIMENT_ANALYSIS/assets/116492348/31d37ff5-0572-4169-9906-2d672307665d)
+![Screenshot from 2023-10-05 21-38-32](https://github.com/AshikJenly/REAL_TIME_SENTIMENT_ANALYSIS/assets/116492348/09262209-5d66-419b-aa8c-c816add83bf2)
 
